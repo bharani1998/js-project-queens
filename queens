@@ -12,16 +12,58 @@ function changeDirection()
 {
   var direction=prompt("enter the direction");
   var steps=prompt("enter the steps");
+  switch(direction)
+  {
+   case 'N':
+    pos.direction='N';
+    break;
+    case 'S':
+   pos.direction='S';
+    break;
+    case 'E':
+   pos.direction='E';
+    break;
+    case 'W':
+    pos.direction='W';
+    break;
+    case 'NE':
+pos.direction='NE';
+    break;
+    case 'NW':
+   pos.direction='NW';
+    break;
+    case 'SE':
+    pos.direction='SE';
+    break;
+    case 'SW':
+    pos.direction='SW';
+    break;
 }
 // Checkpoint 3 | Moving the queen
 switch(direction)
   {
-    case 'N':queen.pos.r-=steps;
-    case 'S':queen.pos.r+=steps;
-    case 'E':queen.pos.c+=steps;
-    case 'W':queen.pos.c-=steps;
-    case 'NE':queen.pos.r-=steps+queen.pos.c+=steps;
-    case 'NW':queen.pos.r-=steps+ queen.pos.c-=steps;
-    case 'SE':queen.pos.r+=steps+ queen.pos.c+=steps;
-    case 'SW':queen.pos.r+=steps+ queen.pos.c-=steps;
+    case 'N':
+    queen.pos.r-=steps;
+    break;
+    case 'S':
+    queen.pos.r+=steps;
+    break;
+    case 'E':
+    queen.pos.c+=steps;
+    break;
+    case 'W':
+    queen.pos.c-=steps;
+    break;
+    case 'NE':
+    queen.pos.r-=steps+queen.pos.c+=steps;
+    break;
+    case 'NW':
+    queen.pos.r-=steps+ queen.pos.c-=steps;
+    break;
+    case 'SE':
+    queen.pos.r+=steps+ queen.pos.c+=steps;
+    break;
+    case 'SW':
+    queen.pos.r+=steps+ queen.pos.c-=steps;
+    break;
   }
