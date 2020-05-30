@@ -1,0 +1,27 @@
+// Checkpoint 1 | Creating the queen object
+let queen={
+  pos:{
+    r:0,
+    c:4
+  },
+
+  direction:S
+},
+// Checkpoint 2 | Turning the queen
+function changeDirection()
+{
+  var direction=prompt("enter the direction");
+  var steps=prompt("enter the steps");
+}
+// Checkpoint 3 | Moving the queen
+switch(direction)
+  {
+    case 'N':queen.pos.r-=steps;
+    case 'S':queen.pos.r+=steps;
+    case 'E':queen.pos.c+=steps;
+    case 'W':queen.pos.c-=steps;
+    case 'NE':queen.pos.r-=steps+queen.pos.c+=steps;
+    case 'NW':queen.pos.r-=steps+ queen.pos.c-=steps;
+    case 'SE':queen.pos.r+=steps+ queen.pos.c+=steps;
+    case 'SW':queen.pos.r+=steps+ queen.pos.c-=steps;
+  }
