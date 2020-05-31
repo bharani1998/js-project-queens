@@ -1,69 +1,108 @@
-// Checkpoint 1 | Creating the queen object
-let queen={
-  pos:{
-    r:0,
-    c:4
-  },
+let queen = {
+  direction: "S",
+  position: [x=4,y= 0],
+  whereabouts: []
+};
 
-  direction:S
-},
-// Checkpoint 2 | Turning the queen
-function changeDirection()
-{
-  var direction=prompt("enter the direction");
-  var steps=prompt("enter the steps");
-  switch(direction)
-  {
-   case 'N':
-    pos.direction='N';
-    break;
-    case 'S':
-   pos.direction='S';
-    break;
-    case 'E':
-   pos.direction='E';
-    break;
-    case 'W':
-    pos.direction='W';
-    break;
-    case 'NE':
-pos.direction='NE';
-    break;
-    case 'NW':
-   pos.direction='NW';
-    break;
-    case 'SE':
-    pos.direction='SE';
-    break;
-    case 'SW':
-    pos.direction='SW';
-    break;
-}
-// Checkpoint 3 | Moving the queen
-switch(direction)
-  {
-    case 'N':
-    queen.pos.r-=steps;
-    break;
-    case 'S':
-    queen.pos.r+=steps;
-    break;
-    case 'E':
-    queen.pos.c+=steps;
-    break;
-    case 'W':
-    queen.pos.c-=steps;
-    break;
-    case 'NE':
-    queen.pos.r-=steps+queen.pos.c+=steps;
-    break;
-    case 'NW':
-    queen.pos.r-=steps+ queen.pos.c-=steps;
-    break;
-    case 'SE':
-    queen.pos.r+=steps+ queen.pos.c+=steps;
-    break;
-    case 'SW':
-    queen.pos.r+=steps+ queen.pos.c-=steps;
-    break;
-  }
+      function getQueenDirection() {
+        console.log(queen);
+      }
+      function changeDirection(direction) {
+        switch (direction) {
+          case "N":
+            queen.direction = "N";
+            break;
+          case "S":
+            queen.direction = "S";
+            break;
+          case "E":
+            queen.direction = "E";
+            break;
+          case "W":
+            queen.direction = "W";
+            break;
+          case "NE":
+            queen.direction = "NE";
+            break;
+          case "NW":
+            queen.direction = "NW";
+            break;
+          case "SE":
+            queen.direction = "SE";
+            break;
+          case "SW":
+            queen.direction = "SW";
+            break;
+        }
+      }
+      function moveForward() {
+        switch (queen.direction) {
+          case "N":
+            queen.position[1] -= 1;
+            break;
+          case "S":
+            queen.position[1] += 1;
+            break;
+          case "E":
+            queen.position[0] += 1;
+            break;
+          case "W":
+            queen.position[0] -= 1;
+            break;
+          case "NE":
+            queen.position[0] += 1;
+            queen.position[1] -= 1;
+            break;
+          case "NW":
+            queen.position[0] -= 1;
+            queen.position[1] -= 1;
+            break;
+          case "SE":
+            queen.position[0] += 1;
+            queen.position[1] += 1;
+            break;
+          case "SW":
+            queen.position[0] -= 1;
+            queen.position[1] += 1;
+            break;
+        }
+      }
+      function jumpMoveForward(steps) {
+        while (steps > 0) {
+          switch (queen.direction) {
+            case "N":
+              queen.position[1] -= 1;
+              break;
+            case "S":
+              queen.position[1] += 1;
+              break;
+            case "E":
+              queen.position[0] += 1;
+              break;
+            case "W":
+              queen.position[0] -= 1;
+              break;
+            case "NE":
+              queen.position[0] += 1;
+              queen.position[1] -= 1;
+              break;
+            case "NW":
+              queen.position[0] -= 1;
+              queen.position[1] -= 1;
+              break;
+            case "SE":
+              queen.position[0] += 1;
+              queen.position[1] += 1;
+              break;
+            case "SW":
+              queen.position[0] -= 1;
+              queen.position[1] += 1;
+              break;
+          }
+          steps -= 1;
+        }
+      }
+      function updatePosition() {
+        let lengths = queen.position.map((item) => item);
+        queen.whereabouts.push(lengths);
+      }
